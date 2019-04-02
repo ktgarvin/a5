@@ -6,9 +6,7 @@ public class RedPlate implements Plate {
 	private Sushi contents;
 
 	public RedPlate(Sushi contents) throws PlatePriceException {
-		
 		this.contents = contents;
-		
 	}
 
 	@Override

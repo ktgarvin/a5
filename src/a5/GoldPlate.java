@@ -1,7 +1,5 @@
 package a5;
 
-import a5.Plate.Color;
-
 public class GoldPlate implements Plate {
 	
 	private double price = 5.0;

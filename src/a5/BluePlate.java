@@ -1,7 +1,5 @@
 package a5;
 
-import a5.Plate.Color;
-
 public class BluePlate implements Plate {
 	
 	private double price = 4.0;
