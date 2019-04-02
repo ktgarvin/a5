@@ -9,7 +9,7 @@ public class GoldPlate implements Plate {
 
 	public GoldPlate(Sushi contents, double price) throws PlatePriceException {
 		this.contents = contents;
-		if (this.price < 5.0) {
+		if (price < 5.0) {
 			throw new IllegalArgumentException("Price must be more than $5.00!");
 		}
 	}
