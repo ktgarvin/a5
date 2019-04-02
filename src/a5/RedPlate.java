@@ -24,6 +24,7 @@ public class RedPlate implements Plate {
 	@Override
 	public Sushi removeContents() {
 		Sushi oldContents = contents;
+		contents = null;
 		return oldContents;
 	}
 
