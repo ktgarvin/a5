@@ -2,9 +2,9 @@ package a5;
 
 public class RedPlate implements Plate {
 
-	private Color RED;
 	private double price = 1.0;
 	private Sushi contents;
+	private Sushi oldContents;
 
 	public RedPlate(Sushi contents) throws PlatePriceException {
 		
@@ -23,13 +23,8 @@ public class RedPlate implements Plate {
 
 	@Override
 	public Sushi removeContents() {
-		if (contents == null) {
-			return null;
-		} else {
-			Sushi priorContents = contents;
-			contents = null;
-			return priorContents;
-		}
+		Sushi oldContents = contents;
+		return oldContents;
 	}
 
 	@Override
@@ -59,7 +54,7 @@ public class RedPlate implements Plate {
 
 	@Override
 	public Color getColor() {
-		return RED;
+		return Plate.Color.RED;
 	}
 
 	@Override
