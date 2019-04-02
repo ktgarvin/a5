@@ -2,7 +2,7 @@ package a5;
 
 public class RedPlate implements Plate {
 
-	private Color RED = null;
+	private Color RED;
 	private double price = 1.0;
 	private Sushi contents;
 
@@ -59,7 +59,7 @@ public class RedPlate implements Plate {
 
 	@Override
 	public Color getColor() {
-		return this.RED;
+		return RED;
 	}
 
 	@Override
