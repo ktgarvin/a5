@@ -57,7 +57,7 @@ public class GoldPlate implements Plate {
 
 	@Override
 	public Color getColor() {
-		return Plate.Color.BLUE;
+		return Plate.Color.GOLD;
 	}
 
 	@Override
