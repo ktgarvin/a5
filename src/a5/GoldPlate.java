@@ -61,7 +61,7 @@ public class GoldPlate implements Plate {
 	@Override
 	public double getProfit() {
 		if (!hasContents()) {
-			return 0.0;
+			return 0;
 		} else {
 			return (Math.floor((100 * (this.getPrice() - contents.getCost())))) / 100.0; 
 		}
