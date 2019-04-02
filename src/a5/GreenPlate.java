@@ -6,7 +6,6 @@ public class GreenPlate implements Plate {
 	
 	private double price = 2.0;
 	private Sushi contents;
-	private Sushi oldContents;
 
 	public GreenPlate(Sushi contents) throws PlatePriceException {
 		this.contents = contents;

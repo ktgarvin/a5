@@ -1,14 +1,14 @@
 package a5;
 
-public class RedPlate implements Plate {
+import a5.Plate.Color;
 
-	private double price = 1.0;
+public class BluePlate implements Plate {
+	
+	private double price = 4.0;
 	private Sushi contents;
 
-	public RedPlate(Sushi contents) throws PlatePriceException {
-		
+	public BluePlate(Sushi contents) throws PlatePriceException {
 		this.contents = contents;
-		
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class RedPlate implements Plate {
 
 	@Override
 	public Color getColor() {
-		return Plate.Color.RED;
+		return Plate.Color.BLUE;
 	}
 
 	@Override
