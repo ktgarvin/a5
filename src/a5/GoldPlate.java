@@ -2,7 +2,7 @@ package a5;
 
 public class GoldPlate implements Plate {
 	
-	private double price = 5.0;
+	private double price;
 	private Sushi contents;
 
 	public GoldPlate(Sushi contents, double price) throws PlatePriceException {
@@ -10,6 +10,7 @@ public class GoldPlate implements Plate {
 		if (price < 5.0) {
 			throw new IllegalArgumentException("Price must be more than $5.00!");
 		}
+		this.price = price;
 	}
 
 	@Override
@@ -61,7 +62,7 @@ public class GoldPlate implements Plate {
 	@Override
 	public double getProfit() {
 		if (!hasContents()) {
-			return 0;
+			return 0.0;
 		} else {
 			return (Math.floor((100 * (this.getPrice() - contents.getCost())))) / 100.0; 
 		}
