@@ -62,7 +62,7 @@ public class RedPlate implements Plate {
 		if (!hasContents()) {
 			return 0.0;
 		} else {
-			return (Math.round((100 * (this.getPrice() - contents.getCost()))))/100.0; 
+			return (Math.floor((100 * (this.getPrice() - contents.getCost())))) / 100.0; 
 		}
 	}
 
