@@ -49,7 +49,7 @@ public class RedPlate implements Plate {
 
 	@Override
 	public double getPrice() {
-		return ((100*price+.5))/100.0;
+		return ((100*price))/100.0;
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class RedPlate implements Plate {
 		if (!hasContents()) {
 			return 0.0;
 		} else {
-			return ((100 * (this.getPrice() - contents.getCost()) + .5))/100.0; 
+			return ((100 * (this.getPrice() - contents.getCost())))/100.0; 
 		}
 	}
 
