@@ -1,5 +1,7 @@
 package a5;
 
+//IngredientBase implements the IngredientPortion interface
+//this class is a super class for the eight Ingredients
 public abstract class IngredientBase implements Ingredient {
 
 	private String name;
@@ -29,26 +31,34 @@ public abstract class IngredientBase implements Ingredient {
 	}
 	
 	@Override
+//	returns the name of the Ingredient
 	public String getName() {
 		return name;
 	}
 
 	@Override
+//	returns the calories per dollar of the Ingredient
 	public double getCaloriesPerDollar() {
 		return calories / price;
 	}
 
 	@Override
+//	returns the calories per ounce of the Ingredient
 	public int getCaloriesPerOunce() {
 		return calories;
 	}
 
 	@Override
+//	returns the price per ounce of the Ingredient
 	public double getPricePerOunce() {
 		return price;
 	}
 
 	@Override
+//	returns true if the Ingredient object passed in as a parameter has the same name,
+//	the same calories per ounce, is within $0.01 in price per ounce, and has the same characteristics
+//	input: a new Ingredient object
+//	output: a true or false value dependent on if the two Ingredients are equal to each other
 	public boolean equals(Ingredient other) {
 		if (other.getName().equals(this.name)) {
 			if (other.getCaloriesPerOunce() == this.calories) {
@@ -67,16 +77,19 @@ public abstract class IngredientBase implements Ingredient {
 	}
 
 	@Override
+//	returns true if the Ingredient is vegetarian
 	public boolean getIsVegetarian() {
 		return is_vegetarian;
 	}
 
 	@Override
+//	returns true if the Ingredient has rice
 	public boolean getIsRice() {
 		return is_rice;
 	}
 
 	@Override
+//	returns true if the Ingredient has shellfish
 	public boolean getIsShellfish() {
 		return is_shellfish;
 	}

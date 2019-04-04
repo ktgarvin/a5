@@ -1,5 +1,7 @@
 package a5;
 
+//A piece of nigiri is comprised of 0.75 ounces of some type of seafood and 0.5 ounces of rice. 
+//There are five types of nigiri: tuna, yellowtail, eel, crab, and shrimp.
 public class Nigiri implements Sushi {
 	
 	public enum NigiriType {TUNA, YELLOWTAIL, EEL, CRAB, SHRIMP};
@@ -45,17 +47,21 @@ public class Nigiri implements Sushi {
 	}
 
 	@Override
+//	returns the name of the type of Nigiri 
 	public String getName() {
 		return name;
 	}
 
 	@Override
+//	returns a clone of the set of ingredient portions that make up the Nigiri
 	public IngredientPortion[] getIngredients() {
 		IngredientPortion[] newPortion = portion.clone();
 		return newPortion;
 	}
 
 	@Override
+//	returns the calories of the Nigiri object 
+//	iterates through the entire set of ingredient portions to add up the calories of each ingredient
 	public int getCalories() {
 		double sum  = 0;
 		for (int i = 0; i < this.portion.length; i++) {
@@ -65,6 +71,8 @@ public class Nigiri implements Sushi {
 	}
 
 	@Override
+//	returns the cost of the Nigiri object
+//	iterates through the entire set of ingredient portions to add up the cost of each ingredient
 	public double getCost() {
 		double sum  = 0;
 		for (int i = 0; i < this.portion.length; i++) {
@@ -74,6 +82,7 @@ public class Nigiri implements Sushi {
 	}
 
 	@Override
+//	returns true if any of the ingredients of the Nigiri object are rice
 	public boolean getHasRice() {
 		for (int i = 0; i < this.portion.length; i++) {
 			this.portion[i].getIsRice();
@@ -85,6 +94,7 @@ public class Nigiri implements Sushi {
 	}
 
 	@Override
+//	returns true is any of the ingredients of the Nigiri object are shellfish
 	public boolean getHasShellfish() {
 		for (int i = 0; i < this.portion.length; i++) {
 			this.portion[i].getIsShellfish();
@@ -96,6 +106,7 @@ public class Nigiri implements Sushi {
 	}
 
 	@Override
+//	returns true if any of the ingredients of the Nigiri object are vegetarian
 	public boolean getIsVegetarian() {
 		for (int i = 0; i < this.portion.length; i++) {
 			this.portion[i].getIsVegetarian();

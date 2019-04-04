@@ -2,6 +2,7 @@ package a5;
 
 import java.util.ArrayList;
 
+//A roll is a sushi creation that may be comprised of any number of different ingredient portions.
 public class Roll implements Sushi {
 	
 	private String name;
@@ -24,27 +25,31 @@ public class Roll implements Sushi {
 			}
 		}
 		
-		for (int i = 0; i < roll_ingredients.length; i++) {
-			
+//		iterates through the Ingredient Portion[] 
+//		detects if a particular ingredient is repeated
+//		combines the separate portions of a repeated ingredient type into a single portion
+		for (int c = 0; c < roll_ingredients.length; c++) {
 			boolean hasItem = false;
-			for (int j = 0; j < repeats.size(); j++) {
-				if (roll_ingredients[i].getName().equals(repeats.get(j).getName()) ) {
-					 IngredientPortion food = roll_ingredients[i].combine(repeats.get(j));
-					 repeats.set(j, food);
+			for (int f = 0; f < repeats.size(); f++) {
+				if (roll_ingredients[c].getName().equals(repeats.get(f).getName()) ) {
+					 IngredientPortion newPortion = roll_ingredients[c].combine(repeats.get(f));
+					 repeats.set(f, newPortion);
 					 hasItem = true;
 				}
 			}
 			if (!hasItem) {
-				repeats.add(roll_ingredients[i]);
+				repeats.add(roll_ingredients[c]);
 			}
 		}
 		
+//		0.1 ounces of Seaweed represents the roll wrapper if the ingredient portion array passed to the constructor does not already include at least this much seaweed
+//		if the ingredient portions passed to the constructor already have at least this much seaweed, no more is added
 		boolean hasSeaweed = false;
-		for (int i= 0; i < repeats.size(); i++) {
-			if(repeats.get(i).getIngredient().getName().equals("seaweed")) {
+		for (int k = 0; k < repeats.size(); k++) {
+			if(repeats.get(k).getIngredient().getName().equals("seaweed")) {
 				hasSeaweed = true;
-				if (repeats.get(i).getAmount() < 0.1) {
-					repeats.set(i, new SeaweedPortion(0.1));
+				if (repeats.get(k).getAmount() < 0.1) {
+					repeats.set(k, new SeaweedPortion(0.1));
 					hasSeaweed = true;
 				}
 			}
@@ -59,38 +64,46 @@ public class Roll implements Sushi {
 	}
 
 	@Override
+//	returns the name of the roll object
 	public String getName() {
 		return name;
 	}
 
 	@Override
+//	returns a clone of the set of ingredient portions that make up the Nigiri
 	public IngredientPortion[] getIngredients() {
 		IngredientPortion[] newPortion = repeatedIngredients.clone();
 		return newPortion;
 	}
 
 	@Override
+//	returns the calories of the roll object 
+//	iterates through the entire set of ingredient portions to add up the calories of each ingredient
 	public int getCalories() {
-		int sum  = 0;
+		int calories  = 0;
 		for (int i = 0; i < this.repeatedIngredients.length; i++) {
-			sum += repeatedIngredients[i].getCalories();
+			calories += ((int) (repeatedIngredients[i].getCalories() + 0.5));
 		}
-		return (int) (sum + 0.5);
+		return calories;
 	}
 
 	@Override
+//	returns the cost of the roll object
+//	iterates through the entire set of ingredient portions to add up the cost of each ingredient
 	public double getCost() {
-		double sum = 0;
+		double cost = 0;
 		for (int i = 0; i < this.repeatedIngredients.length; i++) {
-			sum += repeatedIngredients[i].getCost() ;
+			this.repeatedIngredients[i].getCost();
+			cost += repeatedIngredients[i].getCost();
 		}
-		return ((int)(100*sum+.5))/100.0;
+		return ((int)((100 * cost) + 0.5)) / 100.0;
 	}
 
 	@Override
+//	returns true if any of the ingredients of the roll object are rice
 	public boolean getHasRice() {
 		for (int i = 0; i < this.repeatedIngredients.length; i++) {
-//			this.repeatedIngredients[i].getIsRice();
+			this.repeatedIngredients[i].getIsRice();
 			if (repeatedIngredients[i].getIsRice() == true) {
 				return true;
 			}
@@ -99,6 +112,7 @@ public class Roll implements Sushi {
 	}
 
 	@Override
+//	returns true is any of the ingredients of the roll object are shellfish
 	public boolean getHasShellfish() {
 		for (int i = 0; i < this.repeatedIngredients.length; i++) {
 			this.repeatedIngredients[i].getIsShellfish();
@@ -110,6 +124,7 @@ public class Roll implements Sushi {
 	}
 
 	@Override
+//	returns true if any of the ingredients of the roll object are vegetarian
 	public boolean getIsVegetarian() {
 		for (int i = 0; i < this.repeatedIngredients.length; i++) {
 			this.repeatedIngredients[i].getIsVegetarian();

@@ -13,6 +13,11 @@ public class EelPortion extends IngredientPortionBase {
 	}
 
 	@Override
+//	combines two of the same Ingredients
+//	input: a new IngredientPortion object
+//	output: a new Ingredient Portion object that is the combined amount of the original 
+//	Ingredient Portion object and the Ingredient Portion object passed into the constructor
+//	returns a new Ingredient object with their combined amount
 	public IngredientPortion combine(IngredientPortion other) {
 		if (other == null) {
 			return this;
